@@ -4,8 +4,8 @@ from sklearn.neighbors import KNeighborsClassifier
 
 # 사용자로부터 길이와 무게를 입력받는 함수
 def input_data():
-    length = float(input("길이를 입력하세요: "))
-    weight = float(input("무게를 입력하세요: "))
+    length = float(input("길이를 입력하세요(cm): "))
+    weight = float(input("무게를 입력하세요(g): "))
     return [length, weight]
 
 # 메인 함수
@@ -13,16 +13,18 @@ def main():
     training_data = []  # [(특징값, 라벨)]
     targets = []
     k = 5  # K값을 5로 설정
+    model=KNeighborsClassifier(n_neighbors=k)
     while True:
         data = input_data()
         
         if training_data:
             # 예측
-            prediction = predict(training_data, data)
+            model.fit(training_data, data)
+            prediction = model.predict(training_data)
             print(f"예측한 결과: {prediction}")
             
             # 예측 결과에 대한 사용자 피드백 받기
-            feedback = input("예측한 결과가 맞나요?(Y/N): ")
+            feedback = input("예측한 결과가 맞나요?(도미/빙어): ")
             training_data.append(data)
             targets.append(feedback)
         else:
