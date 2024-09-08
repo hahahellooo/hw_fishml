@@ -33,3 +33,6 @@ $ guess-fish
 guess-fish를 exit해야만 pickle 파일이 생성되고 모델 실행
 
 ![image](https://github.com/user-attachments/assets/50ba4e2f-2f3e-4269-b21c-ebf55df6954a)
+
+## Refence
+https://github.com/hahahellooo/hw_fishml.git
