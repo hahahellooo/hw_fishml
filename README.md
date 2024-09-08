@@ -1,4 +1,4 @@
-# weekly_hw1
+# weekly_hw1 - 물고기 판별기
 ***
 
 ## How this program works
