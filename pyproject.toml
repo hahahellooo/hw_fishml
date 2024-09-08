@@ -1,6 +1,6 @@
 [project]
-name = "fish"
-version = "0.2.0"
+name = "fishml_me"
+version = "0.1.0"
 description = "Default template for PDM package"
 authors = [
     {name = "hahahellooo", email = "hahahello777@gmail.com"},
@@ -22,7 +22,7 @@ guess-fish="fish.fishml:main"
 pythonpath = 'src'
 
 [tool.pdm]
-distribution = true
+distribution = false
 
 [project.urls]
 Homepage="https://github.com/hahahellooo/hw_fishml"
