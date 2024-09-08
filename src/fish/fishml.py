@@ -7,8 +7,8 @@ model_path='/home/hahahellooo/homework/fish/src/fish'
 def input_data():
     while True:
         try:
-            length = float(input("🐟길이를 입력하세요(cm): "))
-            weight = float(input("🐟무게를 입력하세요(g): "))
+            length = float(input("길이를 입력하세요(cm): "))
+            weight = float(input("무게를 입력하세요(g): "))
             return [length, weight]
         except ValueError:
             print("숫자를 입력해주세요")
@@ -61,7 +61,7 @@ def main():
                 print("예측 결과 빙어입니다.🐟")
             
             # 예측 결과에 대한 사용자 피드백 받기
-            feedback = input("예측한 결과가 맞나요?(도미/빙어): ").strip()
+            feedback = input("예측한 결과가 맞나요?(🐠/🐟): ").strip()
             
             # 피드백에 따라 라벨 저장(도미:0, 빙어:1)
             if feedback == "도미":
