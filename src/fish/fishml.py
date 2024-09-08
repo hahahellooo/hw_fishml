@@ -50,43 +50,39 @@ def main():
     while True:
         data = input_data()
         
-        if training_data:
-            # 학습 데이터의 수가 k 값보다 적으면 예측하지 않음
-            if len(training_data) < model.n_neighbors:
-                print(f"학습 데이터가 부족합니다. 최소{model.n_neighbors}개의 데이터가 필요합니다.")
-            else:
-                # 학습 데이터가 충분할 경우 모델을 학습하고 예측
-                model.fit(training_data, targets)
-                prediction = model.predict([data])[0] # 예측값 반환(도미 or 빙어)
+        if len(training_data) >=  model.n_neighbors:
+            # 학습 데이터가 충분할 경우 모델을 학습하고 예측
+            model.fit(training_data, targets)
+            prediction = model.predict([data])[0] # 예측값 반환(도미 or 빙어)
             # 예측 결과 출력
-                if prediction == 0:
-                    print("예측 결과 도미입니다.🐠")
-                else:
-                    print("예측 결과 빙어입니다.🐟")
+            if prediction == 0:
+                print("예측 결과 도미입니다.🐠")
+            else:
+                print("예측 결과 빙어입니다.🐟")
             
             # 예측 결과에 대한 사용자 피드백 받기
-                feedback = input("예측한 결과가 맞나요?(도미/빙어): ").strip()
+            feedback = input("예측한 결과가 맞나요?(도미/빙어): ").strip()
             
             # 피드백에 따라 라벨 저장(도미:0, 빙어:1)
-                if feedback == "도미":
-                    label = 0
-                elif feedback == "빙어":
-                    label = 1
-                else:
-                    print("다시 입력해주세요.")
-                    continue
+            if feedback == "도미":
+                label = 0
+            elif feedback == "빙어":
+                label = 1
+            else:
+                print("다시 입력해주세요.")
+                continue
 
-                training_data.append(data)
-                targets.append(label)
+            training_data.append(data)
+            targets.append(label)
         
         else:    
                 # 훈련 데이터가 없을 때는 데이터와 라벨을 입력하여 학습 데이터로 저장
-            print("훈련 데이터가 없습니다. 데이터를 입력해주세요.")
-            feedback = input("정답 (도미/빙어): ")
+            print("훈련 데이터가 부족합니다. 데이터를 입력해주세요.")
+            feedback = input("정답 (도미/빙어): ").strip()
             # 피드백에 따라 label 저장
             if feedback == "도미":
                 label = 0
-            elif feenback == "빙어":
+            elif feedback == "빙어":
                 label = 1
             else:
                 print("다시 입력해주세요.")
