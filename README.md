@@ -11,7 +11,7 @@
 
 ## Install
 ```bash
-$ pip install 
+$ pip install fishml_me 
 ```
 
 ## Usage
